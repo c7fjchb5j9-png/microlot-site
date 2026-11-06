@@ -482,7 +482,7 @@ main > section, .footer { overflow-x: clip; }
   color: var(--gold-dk); border: 2px solid currentColor; outline: 1px solid currentColor; outline-offset: 2px; padding: 6px 10px; border-radius: 3px;
   opacity: .85; pointer-events: none;
 }
-.stamp--bag { right: 26px; bottom: 44px; transform: rotate(-14deg); background: rgba(248,243,236,.6); }
+.stamp--bag { color: var(--green); right: 26px; bottom: 44px; transform: rotate(-14deg); background: rgba(248,243,236,.6); }
 .bag--2 .stamp--bag { transform: rotate(9deg); right: 34px; }
 .bag--3 .stamp--bag { transform: rotate(-6deg); }
 .beans__note { display: flex; gap: 8px; align-items: center; color: var(--ink); margin-top: 4px; }
