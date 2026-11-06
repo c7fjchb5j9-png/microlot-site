@@ -1,0 +1,10 @@
+node_modules
+dist
+public/img
+src/data/images.json
+public/apple-touch-icon.png
+public/favicon-32.png
+shots
+public/noise-*.png
+microlot_prompt_claude_code.md
+.claude

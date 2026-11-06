@@ -1,0 +1,29 @@
+{
+  "name": "microlot-site",
+  "version": "1.0.0",
+  "description": "Сайт-концепт спешелти-кофейни «Микролот», Санкт-Петербург",
+  "scripts": {
+    "images": "node scripts/images.mjs",
+    "predev": "node scripts/images.mjs",
+    "dev": "vite",
+    "prebuild": "node scripts/images.mjs",
+    "build": "vite build",
+    "preview": "vite preview",
+    "og": "node scripts/og.mjs",
+    "shots": "node scripts/shots.mjs"
+  },
+  "type": "module",
+  "dependencies": {
+    "@fontsource/cormorant-garamond": "^5.3.0",
+    "@fontsource/jetbrains-mono": "^5.3.0",
+    "@fontsource/onest": "^5.3.1",
+    "gsap": "^3.15.1",
+    "lenis": "^1.3.27"
+  },
+  "devDependencies": {
+    "playwright": "^1.65.0",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.6"
+  },
+  "private": true
+}
