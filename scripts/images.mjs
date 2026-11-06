@@ -35,11 +35,11 @@ for (const file of files) {
 
 // Иконки из SVG-знака
 const svg = await readFile(path.join(root, 'public', 'favicon.svg'));
-await sharp(svg, { density: 400 }).resize(180, 180).flatten({ background: '#F3ECE2' }).png().toFile(path.join(root, 'public', 'apple-touch-icon.png'));
+await sharp(svg, { density: 400 }).resize(180, 180).flatten({ background: '#023A35' }).png().toFile(path.join(root, 'public', 'apple-touch-icon.png'));
 await sharp(svg, { density: 300 }).resize(32, 32).png().toFile(path.join(root, 'public', 'favicon-32.png'));
 
 // Текстура «бумажного зерна» — готовым тайлом, без дорогого SVG-фильтра
-for (const [file, rgb, max] of [['noise-dark.png', [42, 26, 20], 22], ['noise-light.png', [255, 245, 232], 16]]) {
+for (const [file, rgb, max] of [['noise-dark.png', [0, 38, 37], 20], ['noise-light.png', [255, 245, 232], 16]]) {
   const S = 128, buf = Buffer.alloc(S * S * 4);
   let seed = 7;
   const rnd = () => ((seed = (seed * 16807) % 2147483647) / 2147483647);

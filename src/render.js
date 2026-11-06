@@ -12,34 +12,33 @@ const rub = (n) => `${n}&nbsp;₽`;
 const mark = (cls = 'mark') => `
 <svg class="${cls}" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="4.5" stroke-linejoin="round" stroke-linecap="round"><path d="M50 6 94 50 50 94 6 50Z"/><path d="M53 13C31 28 29 72 50 87"/><circle cx="55" cy="51" r="14"/><path d="M55 30v42"/></g></svg>`;
 
-const bean = (cls) => `
-<svg class="${cls}" viewBox="0 0 40 56" aria-hidden="true"><ellipse cx="20" cy="28" rx="17" ry="25" fill="#5A3624"/><path d="M20 4c-7 9 7 15 0 24s7 15 0 24" fill="none" stroke="#2A1A14" stroke-width="3" stroke-linecap="round"/><ellipse cx="13" cy="18" rx="3" ry="7" fill="#8A5A3C" opacity=".55"/></svg>`;
+// Золотой лист — как на осеннем меню «Микролота»
+const goldLeaf = (cls) => `
+<svg class="${cls}" viewBox="0 0 40 64" aria-hidden="true"><path d="M20 2C35 15 39 35 20 62 1 35 5 15 20 2Z" fill="url(#leafg)"/><path d="M20 9v50M20 22l-7-6M20 22l7-6M20 33l-9-7M20 33l9-7M20 44l-8-6M20 44l8-6" fill="none" stroke="#9c7a52" stroke-width="1.1" stroke-linecap="round" opacity=".55"/></svg>`;
 
-const berry = (cls) => `
-<svg class="${cls}" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="25" r="20" fill="#B3261E"/><circle cx="24" cy="25" r="20" fill="url(#berryg)"/><circle cx="17" cy="17" r="5" fill="#fff" opacity=".28"/><path d="M24 9v4M21 10l3 3 3-3" stroke="#5C120E" stroke-width="2" fill="none" stroke-linecap="round"/></svg>`;
-
-const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><radialGradient id="berryg" cx=".35" cy=".3" r=".8"><stop offset=".6" stop-color="#B3261E" stop-opacity="0"/><stop offset="1" stop-color="#5C120E" stop-opacity=".55"/></radialGradient></defs></svg>`;
+const sprite = `<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false"><defs><linearGradient id="leafg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EACFAA"/><stop offset=".55" stop-color="#D3B698"/><stop offset="1" stop-color="#C49869"/></linearGradient></defs></svg>`;
 
 const cup = () => `
 <svg class="cup" viewBox="0 0 160 170" aria-hidden="true">
-  <g class="steam" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" opacity=".55">
+  <g class="steam" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" opacity=".7">
     <path class="steam__p s1" d="M58 70c-10-12 10-20 0-32s10-20 0-32"/>
     <path class="steam__p s2" d="M80 66c-10-12 10-20 0-32s10-20 0-32"/>
     <path class="steam__p s3" d="M102 70c-10-12 10-20 0-32s10-20 0-32"/>
   </g>
-  <g fill="none" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round" stroke-linecap="round">
-    <path d="M28 86h104l-8 50c-2 12-12 20-24 20H60c-12 0-22-8-24-20Z" fill="var(--paper)"/>
+  <g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round">
+    <path d="M28 86h104l-8 50c-2 12-12 20-24 20H60c-12 0-22-8-24-20Z"/>
     <path d="M131 96c14-2 22 6 20 17-2 10-12 15-24 13"/>
-    <ellipse cx="80" cy="86" rx="52" ry="9" fill="var(--crema)"/>
+    <ellipse cx="80" cy="86" rx="52" ry="9"/>
+    <path d="M44 112c10 8 28 10 44 4" opacity=".6"/>
     <path d="M14 162h132"/>
   </g>
 </svg>`;
 
 const stepIcon = {
-  farm: `<svg viewBox="0 0 96 72" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 62c14-20 28-26 42-14 10-12 30-16 50 2"/><path d="M2 70h92"/><path d="M60 46V14"/><path d="M60 22c-8-8-18-6-20 0 6 6 14 6 20 0Z"/><path d="M60 30c8-8 18-6 20 0-6 6-14 6-20 0Z"/><path d="M60 16c-3-5-1-10 0-12 1 2 3 7 0 12Z"/></g><g fill="var(--berry)"><circle cx="52" cy="32" r="3.2"/><circle cx="68" cy="38" r="3.2"/><circle cx="64" cy="42" r="2.6"/></g></svg>`,
-  process: `<svg viewBox="0 0 96 72" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="72" cy="16" r="8"/><path d="M72 2v3M72 27v3M58 16h3M83 16h3M62 6l2 2M80 24l2 2M62 26l2-2M80 8l2-2"/><path d="M6 44h70l12 8H18Z"/><path d="M18 52v16M84 52v16M30 52v16M72 52v16"/></g><g fill="var(--berry)"><circle cx="24" cy="46" r="2.4"/><circle cx="34" cy="47" r="2.4"/><circle cx="44" cy="46" r="2.4"/><circle cx="54" cy="47" r="2.4"/><circle cx="64" cy="46" r="2.4"/></g></svg>`,
-  roast: `<svg viewBox="0 0 96 72" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 4h22l-6 12H36Z"/><rect x="16" y="16" width="52" height="34" rx="17"/><circle cx="42" cy="33" r="9"/><path d="M68 33h14v-8"/><path d="M22 50l-4 18M62 50l4 18M10 68h66"/></g><path d="M42 58c-6 6 0 10 0 10s6-4 0-10Z" fill="var(--berry)"/></svg>`,
-  cup: `<svg viewBox="0 0 96 72" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M36 22c-4-5 4-8 0-13M48 20c-4-5 4-8 0-13M60 22c-4-5 4-8 0-13"/><path d="M20 30h56l-5 26c-1 6-6 10-12 10H37c-6 0-11-4-12-10Z"/><path d="M76 36c8-1 12 4 10 9-1 5-7 7-12 6"/><path d="M8 70h80"/></g><ellipse cx="48" cy="30" rx="28" ry="4" fill="var(--crema)"/></svg>`,
+  farm: `<svg viewBox="0 0 96 72" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 62c14-20 28-26 42-14 10-12 30-16 50 2"/><path d="M2 70h92"/><path d="M60 46V14"/><path d="M60 22c-8-8-18-6-20 0 6 6 14 6 20 0Z"/><path d="M60 30c8-8 18-6 20 0-6 6-14 6-20 0Z"/><path d="M60 16c-3-5-1-10 0-12 1 2 3 7 0 12Z"/></g><g fill="var(--gold-dk)"><circle cx="52" cy="32" r="3.2"/><circle cx="68" cy="38" r="3.2"/><circle cx="64" cy="42" r="2.6"/></g></svg>`,
+  process: `<svg viewBox="0 0 96 72" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="72" cy="16" r="8"/><path d="M72 2v3M72 27v3M58 16h3M83 16h3M62 6l2 2M80 24l2 2M62 26l2-2M80 8l2-2"/><path d="M6 44h70l12 8H18Z"/><path d="M18 52v16M84 52v16M30 52v16M72 52v16"/></g><g fill="var(--gold-dk)"><circle cx="24" cy="46" r="2.4"/><circle cx="34" cy="47" r="2.4"/><circle cx="44" cy="46" r="2.4"/><circle cx="54" cy="47" r="2.4"/><circle cx="64" cy="46" r="2.4"/></g></svg>`,
+  roast: `<svg viewBox="0 0 96 72" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M30 4h22l-6 12H36Z"/><rect x="16" y="16" width="52" height="34" rx="17"/><circle cx="42" cy="33" r="9"/><path d="M68 33h14v-8"/><path d="M22 50l-4 18M62 50l4 18M10 68h66"/></g><path d="M42 58c-6 6 0 10 0 10s6-4 0-10Z" fill="var(--gold-dk)"/></svg>`,
+  cup: `<svg viewBox="0 0 96 72" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M36 22c-4-5 4-8 0-13M48 20c-4-5 4-8 0-13M60 22c-4-5 4-8 0-13"/><path d="M20 30h56l-5 26c-1 6-6 10-12 10H37c-6 0-11-4-12-10Z"/><path d="M76 36c8-1 12 4 10 9-1 5-7 7-12 6"/><path d="M8 70h80"/></g><ellipse cx="48" cy="30" rx="28" ry="4" fill="var(--gold)"/></svg>`,
 };
 
 const leaf = `<svg class="leaf" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C10 4 4 9 4 16c0 1.5.3 2.8.8 4C6 14 10 10 16 8c-5 3-8 7-9.6 12.2.9.5 2 .8 3.1.8C16 21 20 14 20 4Z" fill="currentColor"/></svg>`;
@@ -166,14 +165,14 @@ export function renderBody(site, menu, images, base) {
 
   /* --- hero --- */
   const floats = [
-    bean('fl fl--b1'), berry('fl fl--r1'), bean('fl fl--b2'), berry('fl fl--r2'), bean('fl fl--b3'), berry('fl fl--r3'),
+    goldLeaf('fl fl--b1'), goldLeaf('fl fl--r1'), goldLeaf('fl fl--b2'), goldLeaf('fl fl--r2'), goldLeaf('fl fl--b3'), goldLeaf('fl fl--r3'),
   ].join('');
 
   const hero = `
 <section class="hero" id="top" aria-labelledby="hero-title">
   <div class="hero__floats" aria-hidden="true">${floats}</div>
   <div class="wrap hero__wrap">
-    <div class="hero__meta mono"><span>${esc(site.hero.label)}</span><span class="hero__roast"><i aria-hidden="true"></i>${esc(site.hero.roast)}</span></div>
+    <div class="hero__meta mono"><span>${site.hero.label.split(' · ').map((x, i) => `${i ? `<span class="sep seg-${i + 1}"> · </span>` : ''}<span class="nw seg-${i + 1}">${esc(x)}</span>`).join('')}</span><span class="hero__roast"><i aria-hidden="true"></i>${esc(site.hero.roast)}</span></div>
     <div class="hero__grid">
       <div class="hero__main">
         <h1 class="hero__title" id="hero-title" aria-label="${esc(site.brand.name)}">
@@ -289,7 +288,7 @@ export function renderBody(site, menu, images, base) {
     <div class="more">
       <h3 class="more__title">Ещё у нас</h3>
       <ul class="chips">${menu.more.map((m) => `<li>${esc(m)}</li>`).join('')}</ul>
-      <p class="syrups">${berry('syrups__berry')}<span>${esc(menu.syrupsNote)}</span></p>
+      <p class="syrups">${leaf}<span>${esc(menu.syrupsNote)}</span></p>
     </div>
   </div>
 </section>`;
@@ -441,24 +440,24 @@ export function renderBody(site, menu, images, base) {
       <path d="M190 24V240" stroke-width="7" opacity=".08"/>
       <path d="M190 24V240" stroke-width="1.4" stroke-dasharray="2 6"/>
     </g>
-    <path class="scheme__route" d="M300 330H140" fill="none" stroke="var(--berry)" stroke-width="3" stroke-dasharray="7 6"/>
-    <g font-family="JetBrains Mono, monospace" font-size="12" fill="currentColor" letter-spacing=".6">
+    <path class="scheme__route" d="M300 330H140" fill="none" stroke="var(--gold-dk)" stroke-width="3" stroke-dasharray="7 6"/>
+    <g font-family="Cormorant Garamond, serif" font-weight="600" font-size="13.5" fill="currentColor" letter-spacing="1.6">
       <text x="16" y="358">ЛЕНИНСКИЙ ПР.</text>
       <text x="310" y="20" transform="rotate(90 310 20)">МОСКОВСКИЙ ПР.</text>
       <text x="198" y="128" transform="rotate(90 198 128)">ВАРШАВСКАЯ УЛ.</text>
-      <text x="168" y="320" fill="var(--berry)">≈ 750 м</text>
+      <text x="168" y="320" fill="var(--green)">≈ 750 М</text>
       <text x="16" y="390" font-size="10" opacity=".6">СХЕМА · НЕ В МАСШТАБЕ</text>
       <text x="374" y="30" font-size="14">С↑</text>
-      <text x="316" y="358">«МОСКОВСКАЯ»</text>
+      <text x="314" y="358" font-size="12" letter-spacing=".4">«МОСКОВСКАЯ»</text>
     </g>
-    <g><circle cx="300" cy="330" r="13" fill="var(--paper)" stroke="currentColor" stroke-width="1.6"/><text x="300" y="335" text-anchor="middle" font-family="Onest, sans-serif" font-weight="600" font-size="14" fill="var(--berry)">М</text></g>
-    <g class="pin"><circle class="pin__pulse" cx="140" cy="330" r="22" fill="var(--berry)" opacity=".18"/><circle cx="140" cy="330" r="12" fill="var(--berry)"/><text x="140" y="334.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" font-weight="500" fill="#fff">1</text></g>
+    <g><circle cx="300" cy="330" r="13" fill="var(--paper)" stroke="currentColor" stroke-width="1.6"/><text x="300" y="335" text-anchor="middle" font-family="Cormorant Garamond, serif" font-weight="600" font-size="16" fill="var(--green)">М</text></g>
+    <g class="pin"><circle class="pin__pulse" cx="140" cy="330" r="22" fill="var(--gold-dk)" opacity=".18"/><circle cx="140" cy="330" r="12" fill="var(--gold-dk)"/><text x="140" y="334.5" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" font-weight="600" fill="var(--green-dk)">1</text></g>
     <text x="16" y="278" font-family="Cormorant Garamond, serif" font-size="26" font-weight="600" fill="currentColor">Ленинский, 166</text>
-    <text x="16" y="298" font-family="JetBrains Mono, monospace" font-size="11" fill="currentColor" opacity=".75">КОФЕЙНЯ · ПЛ. КОНСТИТУЦИИ</text>
-    <g class="pin"><circle class="pin__pulse" cx="190" cy="80" r="22" fill="var(--leaf)" opacity=".18"/><circle cx="190" cy="80" r="12" fill="var(--leaf)"/><text x="190" y="84.5" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="12" font-weight="500" fill="#fff">2</text></g>
+    <text x="16" y="298" font-family="Cormorant Garamond, serif" font-weight="600" font-size="12.5" letter-spacing="1.4" fill="currentColor" opacity=".85">КОФЕЙНЯ · ПЛ. КОНСТИТУЦИИ</text>
+    <g class="pin"><circle class="pin__pulse" cx="190" cy="80" r="22" fill="var(--green)" opacity=".18"/><circle cx="190" cy="80" r="12" fill="var(--green)"/><text x="190" y="84.5" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="15" font-weight="600" fill="var(--paper)">2</text></g>
     <text x="164" y="76" text-anchor="end" font-family="Cormorant Garamond, serif" font-size="24" font-weight="600" fill="currentColor">Варшавская,</text>
     <text x="164" y="100" text-anchor="end" font-family="Cormorant Garamond, serif" font-size="24" font-weight="600" fill="currentColor">23 к1</text>
-    <text x="164" y="120" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="11" fill="currentColor" opacity=".75">КОФЕ С СОБОЙ</text>
+    <text x="164" y="120" text-anchor="end" font-family="Cormorant Garamond, serif" font-weight="600" font-size="12.5" letter-spacing="1.4" fill="currentColor" opacity=".85">КОФЕ С СОБОЙ</text>
   </svg>
 </figure>`;
 
@@ -510,7 +509,8 @@ export function renderBody(site, menu, images, base) {
   <footer class="footer dark">
     <div class="wrap footer__in">
       ${img(site.logo, 'Логотип кофейни «Микролот»', '72px', { cls: 'footer__logo' })}
-      <p class="mono">© ${new Date().getFullYear()} ${esc(site.brand.name)} · ${esc(site.brand.nameLatin)}<br>Спешелти-кофейня · Санкт-Петербург</p>
+      <p class="mono">© ${new Date().getFullYear()} ${esc(site.brand.name)} · ${esc(site.brand.nameLatin)}<br>Спешелти-кофейня · <span class="nw">Санкт-Петербург</span></p>
+      ${site.demo ? `<a class="demo mono" href="${esc(site.author.telegram)}" target="_blank" rel="noopener"><i aria-hidden="true"></i>Концепт сайта · ${esc(site.author.name)}</a>` : ''}
       <a class="mono footer__top" href="#top">Наверх ↑</a>
     </div>
   </footer>
@@ -524,11 +524,7 @@ export function renderBody(site, menu, images, base) {
   <a href="${esc(c.telegram)}" target="_blank" rel="noopener">${icon.tg}<span>Telegram</span></a>
 </nav>`;
 
-  const demo = site.demo
-    ? `<a class="demo mono" href="${esc(site.author.telegram)}" target="_blank" rel="noopener"><i aria-hidden="true"></i>Концепт сайта · ${esc(site.author.name)}</a>`
-    : '';
-
   return `${sprite}${header}
 <main id="main">${hero}${lot}${menuSec}${beans}${why}${gallery}${rating}${points}${contacts}
-</main>${footer}${dock}${demo}`;
+</main>${footer}${dock}`;
 }
