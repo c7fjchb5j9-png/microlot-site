@@ -373,11 +373,30 @@ main > section, .footer { overflow-x: clip; }
 .tab[aria-selected='true'] { color: var(--ink); font-weight: 500; }
 .tab[aria-selected='true']::after { transform: scaleX(1); }
 .tab:hover { color: var(--ink); }
+.tab--season { display: inline-flex; align-items: center; gap: 7px; }
+.leaf { width: 14px; height: 14px; color: #b5651d; flex: none; }
+.season-tag { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; color: #8a4b14; font-size: 11px; }
+.poster {
+  display: flex; align-items: center; gap: 14px; margin: 6px 0 4px; padding: 10px;
+  border: 1px dashed var(--line); text-decoration: none; transition: background-color .25s;
+}
+.poster:hover { background: rgba(42,26,20,.04); }
+.poster__img { width: 72px; height: 72px; object-fit: cover; flex: none; box-shadow: 0 6px 14px -8px rgba(42,26,20,.6); }
+.poster__t { display: grid; gap: 4px; font-family: var(--f-display); font-weight: 600; font-size: 20px; line-height: 1.1; }
+.poster__t .mono { color: var(--ink-soft); font-size: 11px; }
+@media (min-width: 600px) {
+  .panel--poster { display: grid; grid-template-columns: 1fr 196px; column-gap: 32px; align-items: start; }
+  .panel--poster .season-tag { grid-column: 1 / -1; }
+  .poster { flex-direction: column; align-items: stretch; gap: 10px; margin: 14px 0; padding: 10px 10px 12px; transform: rotate(2deg); background: var(--paper); border-style: solid; }
+  .poster__img { width: 100%; height: auto; aspect-ratio: auto; }
+  .poster__t { font-size: 17px; }
+}
 @media (min-width: 760px) {
   .tabs { justify-content: center; -webkit-mask-image: none; mask-image: none; }
 }
 
 .panels { padding: 6px 20px 14px; }
+.panel[hidden] { display: none !important; }
 .panel:focus-visible { outline-offset: -2px; }
 .row {
   display: grid; grid-template-columns: 1fr auto auto; align-items: baseline; gap: 6px 14px;

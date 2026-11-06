@@ -42,6 +42,8 @@ const stepIcon = {
   cup: `<svg viewBox="0 0 96 72" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M36 22c-4-5 4-8 0-13M48 20c-4-5 4-8 0-13M60 22c-4-5 4-8 0-13"/><path d="M20 30h56l-5 26c-1 6-6 10-12 10H37c-6 0-11-4-12-10Z"/><path d="M76 36c8-1 12 4 10 9-1 5-7 7-12 6"/><path d="M8 70h80"/></g><ellipse cx="48" cy="30" rx="28" ry="4" fill="var(--crema)"/></svg>`,
 };
 
+const leaf = `<svg class="leaf" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 4C10 4 4 9 4 16c0 1.5.3 2.8.8 4C6 14 10 10 16 8c-5 3-8 7-9.6 12.2.9.5 2 .8 3.1.8C16 21 20 14 20 4Z" fill="currentColor"/></svg>`;
+
 const star = `<svg viewBox="0 0 20 20" aria-hidden="true"><path d="m10 1.5 2.6 5.5 6 .7-4.4 4.1 1.1 6L10 14.9 4.7 17.8l1.1-6L1.4 7.7l6-.7Z" fill="currentColor"/></svg>`;
 const stars = (n = 5) => `<span class="stars" aria-hidden="true">${star.repeat(n)}</span>`;
 
@@ -243,20 +245,29 @@ export function renderBody(site, menu, images, base) {
   const tabs = menu.categories
     .map(
       (cat, i) =>
-        `<button class="tab" role="tab" type="button" id="tab-${cat.id}" aria-controls="panel-${cat.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${esc(cat.title)}</button>`
+        `<button class="tab${cat.seasonal ? ' tab--season' : ''}" role="tab" type="button" id="tab-${cat.id}" aria-controls="panel-${cat.id}" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${cat.seasonal ? leaf : ''}${esc(cat.title)}</button>`
     )
     .join('');
   const panels = menu.categories
     .map(
       (cat, i) => `
-      <div class="panel" role="tabpanel" id="panel-${cat.id}" aria-labelledby="tab-${cat.id}" tabindex="0"${i === 0 ? '' : ' hidden'}>
+      <div class="panel${cat.image ? ' panel--poster' : ''}" role="tabpanel" id="panel-${cat.id}" aria-labelledby="tab-${cat.id}" tabindex="0"${i === 0 ? '' : ' hidden'}>
+        ${cat.seasonal ? '<p class="season-tag mono">' + leaf + 'Сезонное предложение</p>' : ''}
         <ul class="rows">${cat.items
           .map(
             (it) => `
           <li class="row"><span class="row__name">${esc(it.name)}${it.note ? ` <small>${esc(it.note)}</small>` : ''}</span><span class="row__dots" aria-hidden="true"></span><span class="row__size mono">${esc(it.size || '')}</span><span class="row__price">${rub(it.price)}</span></li>`
           )
           .join('')}
-        </ul>
+        </ul>${
+          cat.image && images[cat.image]
+            ? `
+        <a class="poster" href="${base}img/${cat.image}-${images[cat.image].widths[images[cat.image].widths.length - 1]}.webp" target="_blank" rel="noopener">
+          ${img(cat.image, cat.imageAlt || '', '(min-width: 600px) 200px, 72px', { cls: 'poster__img' })}
+          <span class="poster__t">Афиша сезонного меню<span class="mono">Открыть картинку ↗</span></span>
+        </a>`
+            : ''
+        }
       </div>`
     )
     .join('');
